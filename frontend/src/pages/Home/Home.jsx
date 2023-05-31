@@ -89,7 +89,7 @@ function Home() {
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
-          The movie you are searching contains " {movieName.toLowerCase()} " .
+          Search 🔎
         </p>
 
         <input
