@@ -1,4 +1,5 @@
 import Popup from '../Popup/Popup';
+import StarRating from '../StarRating/StarRating';
 import './Movie.css';
 import { useState } from 'react';
 
@@ -13,9 +14,12 @@ function Movie({ movie }) {
   return (
     <div>
       <button onClick={() => setButtonPopup(true)}><img src={img_path} alt="logo" /></button>
-      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>TITRE : {movie.original_title}
-      <br></br> DATE DE SORTIE : {movie.release_date}
-      <br></br> DESCRIPTION : {movie.overview}</Popup>
+      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}><p>TITRE : {movie.original_title}</p>
+      <br></br> <p>DATE DE SORTIE : {movie.release_date}</p>
+      <br></br> <p>DESCRIPTION : {movie.overview}</p>
+      <p>Note : {movie.vote_average}/10 pour {movie.vote_count} votes</p>
+      <p>Noter ce film : </p>
+        <StarRating/></Popup>
       <p className="Movie-title">{movie.original_title}</p>
     </div>
   );
