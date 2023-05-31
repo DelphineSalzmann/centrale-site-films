@@ -7,3 +7,9 @@ img {
 .Movie-title {
   font-size: 1em;
 }
+
+button{
+  background-color: #3d354e;
+  border-color: #3d354e;
+  border: none;
+}

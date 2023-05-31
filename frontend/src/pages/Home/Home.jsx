@@ -10,6 +10,7 @@ import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import Movie from '../../components/Movie/Movie';
 import StarRating from '../../components/StarRating/StarRating';
 
+
 function useFetchMovies() {
   const [movies, setMovies] = useState([]);
 
