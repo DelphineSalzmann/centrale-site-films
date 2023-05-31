@@ -20,13 +20,12 @@ function Movie({ movie }) {
       setIsHover(false);
     };
 
-    const movieStyle = () => {
-      '200px'; //width
-      'auto'; //height
-      '20px'; //border-radius
-      isHover ? 'lightblue' : 'rgb(0, 191, 255)'; //background color
-    };
-  };
+    const movieStyle = () => {{
+      "width" : "200px";
+      "height" : 'auto';
+      "borderRadius" :'20px';
+      "backgroundColor" : isHover ? 'lightblue' : 'rgb(0, 191, 255)';
+  }};
 
   return (
     <div>
