@@ -9,6 +9,7 @@ import img3 from './img3.jpg';
 import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import Movie from '../../components/Movie/Movie';
 
+
 function useFetchMovies() {
   const [movies, setMovies] = useState([]);
 
