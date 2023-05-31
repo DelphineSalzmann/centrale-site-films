@@ -6,13 +6,10 @@ import MoviesTable from '../../components/MoviesTable/MoviesTable';
 import AddMovieButton from '../../components/AddMovieButton/AddMovieButton';
 
 function Movies() {
-  console.log('Avant déclaration de movies');
   const [movies, setMovies] = useState([]);
-  console.log('Après déclaration de movies', movies);
   const [moviesLoadingError, setMoviesLoadingError] = useState(null);
 
   const fetchMovies = () => {
-    console.log('Dans Fetch Movies');
     setMoviesLoadingError(null);
 
     axios
@@ -24,17 +21,12 @@ function Movies() {
         setMoviesLoadingError('An error occured while fetching movies.');
         console.error(error);
       });
-    console.log('Fin de FetchMovies, movies = ', movies);
   };
 
   // fetch movie on component mount
   useEffect(() => {
-    console.log('Use effect');
     fetchMovies();
-    console.log('Fin use effect, movies = ', movies);
   }, []);
-
-  console.log('Fin déclaration, movies = ', movies);
 
   return (
     <div className="Movies-container">

@@ -15,13 +15,14 @@ function useFetchMovies() {
 
   useEffect(() => {
     axios
-      .get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a'
-      )
+      .get(`${import.meta.env.VITE_BACKEND_URL}/movies/most_vote`)
+      //.get(
+      // 'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a'
+      //)
       .then((response) => {
         // Do something if call succeeded
-        let array = response.data.results;
-        array = response.data.results;
+        let array = response.data.movies;
+        array = response.data.movies;
         setMovies(array);
       })
       .catch((error) => {
@@ -46,7 +47,7 @@ function includestring(str1, str2) {
 function FilterMovies(string, movies_arr) {
   // retourne la liste des films dont le titre contient string
   const filtered = movies_arr.filter((movie) =>
-    includestring(movie.original_title, string)
+    includestring(movie.Title, string)
   );
 
   return filtered;
@@ -88,9 +89,7 @@ function Home() {
       </div>
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Search 🔎
-        </p>
+        <p>Search 🔎</p>
 
         <input
           type="text"

@@ -13,6 +13,21 @@ router.get('/', function (req, res) {
     });
 });
 
+router.get('/most_vote', function (req, res) {
+  appDataSource
+    .getRepository(Movie)
+    .createQueryBuilder('movie') // first argument is an alias. Alias is what you are selecting - photos. You must specify it.
+    .where('movie.Vote_count > 100')
+    //.andWhere("(photo.name = :photoName OR photo.name = :bearName)")
+    .orderBy('movie.Vote_average', 'DESC')
+    .take(100)
+    //.setParameters({ photoName: "My", bearName: "Mishka" })
+    .getMany()
+    .then(function (movies) {
+      res.json({ movies: movies });
+    });
+});
+
 router.post('/new', function (req, res) {
   const movieRepository = appDataSource.getRepository(Movie);
   const newMovie = movieRepository.create({
