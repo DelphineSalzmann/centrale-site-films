@@ -16,7 +16,7 @@
 }
 
 .App-header {
-  background-color: #3d354e;
+  background-color: #282c34;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,7 +72,7 @@ ul {
 
 .flex-item {
   border-radius: 10px;
-  background: #3d354e;
+  background: #282c34;
   padding: 10px;
   width: 200px;
   height: auto;
