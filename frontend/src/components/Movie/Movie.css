@@ -7,3 +7,7 @@ button{
   border-color: #3d354e;
   border: none;
 }
+
+input[type ='radio']{
+  display: none;
+}

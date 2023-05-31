@@ -86,9 +86,6 @@ function Home() {
       <div style={containerStyles}>
         <ImageSlider slides={slides}></ImageSlider>
       </div>
-
-      <div>{/*<StarRating stars={stars}></StarRating>*/}</div>
-
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
