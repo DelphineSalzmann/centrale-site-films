@@ -16,8 +16,8 @@ const Header = () => {
         Users
       </Link>
       <div>|</div>
-      <Link className="Link" to="/about">
-        About
+      <Link className="Link" to="/movies">
+        Movies
       </Link>
     </div>
   );

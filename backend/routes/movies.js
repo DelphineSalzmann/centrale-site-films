@@ -4,26 +4,31 @@ import Movie from '../entities/movies.js';
 
 const router = express.Router();
 
-function routeCallback(req, res) {
-  const array = [];
-  res.json({ array });
-}
-
-router.get('/', routeCallback);
+router.get('/', function (req, res) {
+  appDataSource
+    .getRepository(Movie)
+    .find({})
+    .then(function (movies) {
+      res.json({ movies: movies });
+    });
+});
 
 router.post('/new', function (req, res) {
   const movieRepository = appDataSource.getRepository(Movie);
   const newMovie = movieRepository.create({
-    id: req.body.id_tmdb,
+    id: req.body.id,
     Title: req.body.Title,
     Date: req.body.Date,
+    Overview: req.body.Overview,
+    Poster_path: req.body.Path,
+    Vote_average: req.body.Vavg,
+    Vote_count: req.body.Vcount,
   });
 
   movieRepository
     .insert(newMovie)
     .then(function (newDocument) {
       res.status(201).json(newDocument);
-      res.json(req);
     })
     .catch(function (error) {
       console.error(error);

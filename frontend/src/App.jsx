@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import About from './pages/About/About';
+import Movies from './pages/MovieList/MovieList';
 import Layout from './components/Layout/Layout';
 import Counter from './pages/Counter/Counter';
 import Users from './pages/Users/Users';
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="counter" element={<Counter />} />
         <Route path="users" element={<Users />} />
-        <Route path="about" element={<About />} />
+        <Route path="movies" element={<Movies />} />
       </Routes>
     </Layout>
   );

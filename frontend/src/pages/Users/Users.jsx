@@ -5,7 +5,9 @@ import AddUserForm from '../../components/AddUserForm/AddUserForm';
 import UsersTable from '../../components/UsersTable/UsersTable';
 
 function Users() {
+  console.log('début');
   const [users, setUsers] = useState([]);
+  console.log('après', users);
   const [usersLoadingError, setUsersLoadingError] = useState(null);
 
   const fetchUsers = () => {

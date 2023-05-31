@@ -8,8 +8,7 @@ import img2 from './img2.jpg';
 import img3 from './img3.jpg';
 import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import Movie from '../../components/Movie/Movie';
-import StarRating from '../../components/StarRating/StarRating';
-
+//import StarRating from '../../components/StarRating/StarRating';
 
 function useFetchMovies() {
   const [movies, setMovies] = useState([]);
@@ -88,9 +87,7 @@ function Home() {
         <ImageSlider slides={slides}></ImageSlider>
       </div>
 
-      <div>
-        <StarRating stars={stars}></StarRating>
-      </div>
+      <div>{/*<StarRating stars={stars}></StarRating>*/}</div>
 
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}

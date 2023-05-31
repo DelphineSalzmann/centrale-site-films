@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import Rating from 'react-simple-star-rating';
 
 const StarRating = ({ stars }) => {
@@ -22,10 +22,10 @@ const StarRating = ({ stars }) => {
         emptyColor="gray"
         className="foo" // Will remove the inline style if applied
       />
-      {/* Use rating value */}
-      {rating}
-    </div>
-  );
-};
+      {/* Use rating value */
+//      {rating}
+//   </div>
+// );
+//};
 
-export default StarRating;
+//export default StarRating;
