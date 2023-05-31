@@ -28,7 +28,6 @@ function FormOfMovie(movie) {
 function AddMovieButton({ onSuccessfulMovieCreation }) {
   const [MovieCreationError, setMovieCreationError] = useState(null);
   const [MovieCreationSuccess, setMovieCreationSuccess] = useState(null);
-  const [moviesArray, setMovies] = useState([]);
   const displayCreationSuccessMessage = () => {
     setMovieCreationSuccess('New movie created successfully');
     setTimeout(() => {
@@ -36,31 +35,30 @@ function AddMovieButton({ onSuccessfulMovieCreation }) {
     }, 3000);
   };
 
-  const saveMovie = (event) => {
+  const saveMovie = async (event) => {
     event.preventDefault();
     setMovieCreationError(null);
+    let movies = [];
 
     for (let PageNum = 1; PageNum < 100; PageNum++) {
       let str = '';
       str =
         'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a&page=';
       str = str.concat(PageNum.toString());
-      axios
-        .get(str)
-        .then((response) => {
-          // Do something if call succeeded
-          let array = response.data.results;
-          array = response.data.results;
-          setMovies(array);
-        })
-        .catch((error) => {
-          // Do something if call failed
-          console.log(error);
-        });
+      console.log(str);
+      try {
+        const response = await axios.get(str);
+        // Do something if call succeeded
+        let array = response.data.results;
+        array = response.data.results;
+        console.log('In axios', array);
+        movies = [...movies, ...array];
+      } catch (error) {
+        console.log(error);
+      }
 
-      for (const ind in moviesArray) {
-        const movieForm = FormOfMovie(moviesArray[ind]);
-        console.log(movieForm);
+      for (const ind in movies) {
+        const movieForm = FormOfMovie(movies[ind]);
 
         axios
           .post(`${import.meta.env.VITE_BACKEND_URL}/movies/new`, movieForm)
