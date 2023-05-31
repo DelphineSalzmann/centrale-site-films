@@ -1,20 +1,22 @@
+import logo from './logo.svg';
 import './Home.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import logo from './cinema.jpg';
+import img1 from './img1.jpg';
+import img2 from './img2.jpg';
+import img3 from './img3.jpg';
+import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import Movie from '../../components/Movie/Movie';
 
-function useFetchMovies(page) {
+function useFetchMovies() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    let adress = '';
-    adress =
-      'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a&page=499&page=';
-    adress = adress.concat(page.toString());
     axios
-      .get(adress)
+      .get(
+        'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a'
+      )
       .then((response) => {
         // Do something if call succeeded
         let array = response.data.results;
@@ -25,12 +27,13 @@ function useFetchMovies(page) {
         // Do something if call failed
         console.log(error);
       });
-  }, [page]);
+  }, []);
 
   return movies;
 }
 
 function includestring(str1, str2) {
+  //teste si str2 est compris dans str1
   let comp1 = '';
   let comp2 = '';
   comp1 = str1.toLowerCase();
@@ -40,6 +43,7 @@ function includestring(str1, str2) {
 }
 
 function FilterMovies(string, movies_arr) {
+  // retourne la liste des films dont le titre contient string
   const filtered = movies_arr.filter((movie) =>
     includestring(movie.original_title, string)
   );
@@ -49,20 +53,28 @@ function FilterMovies(string, movies_arr) {
 
 function Home() {
   const [movieName, setmovieName] = useState('');
-  const [pageNum, setpageNum] = useState(1);
-  console.log(pageNum);
-
-  const movies = useFetchMovies(pageNum);
+  const movies = useFetchMovies();
+  const slides = [
+    { url: img1, title: 'titre' },
+    { url: img2, title: 'titre' },
+    { url: img3, title: 'titre' },
+  ];
+  const containerStyles = {
+    width: '500px',
+    height: '280px',
+    margin: '0 auto',
+  };
   let listItems = null;
   if (FilterMovies(movieName, movies).length > 0) {
     listItems = FilterMovies(movieName, movies).map((movie) => (
-      <li className="flex-item" key={movie.id}>
+      // liste des films filtrée par rapport à l'input. On la parcours pour obtenir les titres et les images et toute autre donnée définie dans Movie
+      <li class="flex-item" key={movie}>
         <Movie movie={movie}></Movie>
       </li>
     ));
   } else {
     listItems = (
-      <li className="flex-item" key={'error'}>
+      <li class="flex-item" key={'error'}>
         <p>There are no movies that match</p>
       </li>
     );
@@ -70,32 +82,28 @@ function Home() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <div style={containerStyles}>
+        <ImageSlider slides={slides}></ImageSlider>
+      </div>
 
+      <header className="App-header">
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
           The movie you are searching contains " {movieName.toLowerCase()} " .
         </p>
 
         <input
-          className="textinput"
           type="text"
           placeholder="Movie Name"
           id="movie"
           onChange={(event) => setmovieName(event.target.value)}
+          // on attribue à movieName ce que l'utilisateur entre en input
         ></input>
+        <br></br>
 
-        <p>The page is</p>
-        <input
-          type="number"
-          placeholder="Page"
-          id="page"
-          min="1"
-          max="500"
-          onChange={(event) => setpageNum(event.target.value)}
-        ></input>
-
-        <ul className="flex-container">{listItems}</ul>
+        <p>
+          <ul class="flex-container">{listItems}</ul>{' '}
+        </p>
 
         <a
           className="App-link"
