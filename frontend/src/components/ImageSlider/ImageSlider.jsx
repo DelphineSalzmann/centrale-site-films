@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = useRef(null);
-  const SliderStyle = {git 
+  const SliderStyle = { 
     height: '100%',
     position: 'relative',
   };
