@@ -15,12 +15,14 @@
     padding: 32px;
     width: 100%;
     max-width: 640px;
-    background-color: aqua;
+    background-color: #3d354e;
 }
 
 .close-button{
     position: absolute;
     top:16px;
     right: 16px;
+    background-color: beige;
+    border-radius: 5px;
 
 }

@@ -13,7 +13,9 @@ function Movie({ movie }) {
   return (
     <div>
       <button onClick={() => setButtonPopup(true)}><img src={img_path} alt="logo" /></button>
-      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>Hello</Popup>
+      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>TITRE : {movie.original_title}
+      <br></br> DATE DE SORTIE : {movie.release_date}
+      <br></br> DESCRIPTION : {movie.overview}</Popup>
       <p className="Movie-title">{movie.original_title}</p>
     </div>
   );
