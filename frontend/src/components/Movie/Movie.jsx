@@ -1,7 +1,5 @@
 import Popup from '../Popup/Popup';
-import Popup from '../Popup/Popup';
 import './Movie.css';
-import { useState } from 'react';
 import { useState } from 'react';
 
 function Movie({ movie }) {
@@ -48,6 +46,6 @@ function Movie({ movie }) {
       <p className="Movie-title">{movie.original_title}</p>
     </div>
   );
-};
+}
 
 export default Movie;
