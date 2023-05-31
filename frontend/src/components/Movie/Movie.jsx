@@ -9,7 +9,7 @@ function Movie({ movie }) {
   return (
     <div>
       <img src={img_path} alt="logo" />
-      <p class="Movie-title">{movie.original_title}</p>
+      <p className="Movie-title">{movie.original_title}</p>
     </div>
   );
 }

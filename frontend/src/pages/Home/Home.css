@@ -4,17 +4,19 @@
 
 .App-logo {
   height: 40vmin;
+  width: auto;
   pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite s linear;
   }
 }
 
 .App-header {
-  background-color: #140e20;
+  background-color: #3d354e;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,6 +36,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.textinput {
+  width: 300px;
+  height: 20px;
 }
 
 ul {
@@ -64,13 +71,14 @@ ul {
 }
 
 .flex-item {
-  background: #140e20;
+  border-radius: 10px;
+  background: #3d354e;
   padding: 10px;
   width: 200px;
   height: auto;
   margin-top: 10px;
   line-height: 30px;
-  color: white;
+  color: rgb(255, 211, 211);
   font-weight: bold;
   font-size: 0.8em;
   text-align: center;

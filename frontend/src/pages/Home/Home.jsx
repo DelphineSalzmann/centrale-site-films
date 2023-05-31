@@ -2,17 +2,19 @@ import './Home.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
+import logo from './cinema.jpg';
 import Movie from '../../components/Movie/Movie';
 
-function useFetchMovies() {
+function useFetchMovies(page) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
+    let adress = '';
+    adress =
+      'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a&page=499&page=';
+    adress = adress.concat(page.toString());
     axios
-      .get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a'
-      )
+      .get(adress)
       .then((response) => {
         // Do something if call succeeded
         let array = response.data.results;
@@ -23,7 +25,7 @@ function useFetchMovies() {
         // Do something if call failed
         console.log(error);
       });
-  }, []);
+  }, [page]);
 
   return movies;
 }
@@ -47,17 +49,20 @@ function FilterMovies(string, movies_arr) {
 
 function Home() {
   const [movieName, setmovieName] = useState('');
-  const movies = useFetchMovies();
+  const [pageNum, setpageNum] = useState(1);
+  console.log(pageNum);
+
+  const movies = useFetchMovies(pageNum);
   let listItems = null;
   if (FilterMovies(movieName, movies).length > 0) {
     listItems = FilterMovies(movieName, movies).map((movie) => (
-      <li class="flex-item" key={movie}>
+      <li className="flex-item" key={movie.id}>
         <Movie movie={movie}></Movie>
       </li>
     ));
   } else {
     listItems = (
-      <li class="flex-item" key={'error'}>
+      <li className="flex-item" key={'error'}>
         <p>There are no movies that match</p>
       </li>
     );
@@ -67,18 +72,30 @@ function Home() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+
         <p>
           The movie you are searching contains " {movieName.toLowerCase()} " .
         </p>
 
         <input
+          className="textinput"
           type="text"
           placeholder="Movie Name"
           id="movie"
           onChange={(event) => setmovieName(event.target.value)}
         ></input>
 
-        <ul class="flex-container">{listItems}</ul>
+        <p>The page is</p>
+        <input
+          type="number"
+          placeholder="Page"
+          id="page"
+          min="1"
+          max="500"
+          onChange={(event) => setpageNum(event.target.value)}
+        ></input>
+
+        <ul className="flex-container">{listItems}</ul>
 
         <a
           className="App-link"

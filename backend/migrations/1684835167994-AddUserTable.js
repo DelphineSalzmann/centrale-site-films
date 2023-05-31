@@ -7,7 +7,7 @@ export default class AddUserTable1684835167994 {
 
     async up(queryRunner) {
         await queryRunner.query(`
-            CREATE TABLE "user" (
+           CREATE TABLE "user" (
                 "id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
                 "email" varchar NOT NULL,
                 "firstname" varchar NOT NULL,
