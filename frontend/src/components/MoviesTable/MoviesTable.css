@@ -10,13 +10,12 @@
   padding: 10px;
 }
 
-.delete-movie-button {
+.delete-button {
   cursor: pointer;
-  color: black;
+  color: white;
   padding: 5px;
-  background-color: rgb(255, 255, 255);
 }
 
-.delete-movie-button:hover {
+.delete-button:hover {
   background-color: red;
 }
