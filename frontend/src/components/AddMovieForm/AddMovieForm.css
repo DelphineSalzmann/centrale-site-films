@@ -8,7 +8,12 @@
 
 .add-movie-button {
   cursor: pointer;
+  color: white;
   padding: 5px;
+}
+
+.add-movie-button:hover {
+  background-color: green;
 }
 
 .movie-creation-success {
