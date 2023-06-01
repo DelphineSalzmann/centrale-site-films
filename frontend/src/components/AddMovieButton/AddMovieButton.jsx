@@ -32,6 +32,9 @@ function FormOfMovie(movie) {
 function AddMovieButton({ onSuccessfulMovieCreation }) {
   const [MovieCreationError, setMovieCreationError] = useState(null);
   const [MovieCreationSuccess, setMovieCreationSuccess] = useState(null);
+  const [startPage, setStartPage] = useState(1);
+  const [endPage, setEndPage] = useState(10);
+
   const displayCreationSuccessMessage = () => {
     setMovieCreationSuccess('New movie created successfully');
     setTimeout(() => {
@@ -44,7 +47,7 @@ function AddMovieButton({ onSuccessfulMovieCreation }) {
     setMovieCreationError(null);
     let movies = [];
 
-    for (let PageNum = 1; PageNum < 10; PageNum++) {
+    for (let PageNum = startPage; PageNum < endPage; PageNum++) {
       let str = '';
       str =
         'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a&page=';
@@ -80,6 +83,24 @@ function AddMovieButton({ onSuccessfulMovieCreation }) {
 
   return (
     <div>
+      <input
+        className="num-input"
+        type="number"
+        id="Startpage"
+        name="Startpage"
+        min="1"
+        max="499"
+        onChange={(event) => setStartPage(event.target.value)}
+      ></input>
+      <input
+        className="num-input"
+        type="number"
+        id="Endpage"
+        name="Endpage"
+        min="2"
+        max="500"
+        onChange={(event) => setEndPage(event.target.value)}
+      ></input>
       <button className="add-movie-button" onClick={saveMovie}>
         {' '}
         Add Movie{' '}

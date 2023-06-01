@@ -13,8 +13,22 @@
   background-color: white;
 }
 
-.add-movie-button:hover {
-  background-color: green;
+.num-input {
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 5px;
+  width: 40px;
+  height: auto;
+  border-radius: 20px;
+  margin-right: 20px;
+  -moz-appearance: textfield; /* Pour Firefox */
+  appearance: textfield; /* Pour les autres navigateurs */
+}
+
+.num-input::-webkit-outer-spin-button,
+.num-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Supprime les marges par défaut */
 }
 
 .movie-creation-success {
