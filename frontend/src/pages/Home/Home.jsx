@@ -9,7 +9,6 @@ import img2 from './img2.jpg';
 import img3 from './img3.jpg';
 import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import Movie from '../../components/Movie/Movie';
-import Posts from '../../components/LoadMoreButton/LoadMore';
 //import StarRating from '../../components/StarRating/StarRating';
 
 function numberOfmatches(arr1, arr2) {
@@ -240,9 +239,9 @@ function Home() {
         <p>
         <div className='affichage-button'>
           <div className='affichage_recommandation'>
-          <button className="recommandation-button" onClick={() => setBouton(4)}>
-          Mes recommandations
-          </button>
+            <button className="recommandation-button" onClick={() => setBouton(4)}>
+            Mes recommandations
+            </button>
           </div>
           <div className='affichage_popular'>
           <button className="popular-button" onClick={() => setBouton(1)}>
@@ -265,7 +264,7 @@ function Home() {
         </p>
       </header>
       <div className="container Load_more">
-      <button onClick={loadMore} type="button">
+      <button onClick={loadMore} type="button" className='load_more_button'>
             Load More 
           </button>
       </div>

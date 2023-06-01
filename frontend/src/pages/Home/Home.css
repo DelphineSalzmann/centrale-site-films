@@ -89,6 +89,7 @@ ul {
   text-align: center;
 }
 
+
 .popular-button {
   cursor: pointer;
   color: white;
@@ -140,4 +141,9 @@ ul {
 .affichage_vote{
   margin-bottom: 10px;
   margin-left: 20px;
+}
+
+.load_more_button{
+  background-color: beige;
+  border-radius: 10px;
 }
