@@ -10,6 +10,7 @@ const DEFAULT_FORM_VALUES = {
   poster_path: '',
   vote_average: null,
   vote_count: null,
+  popularity: null,
 };
 
 function FormOfMovie(movie) {
@@ -21,6 +22,7 @@ function FormOfMovie(movie) {
   outputForm['Path'] = movie['poster_path'];
   outputForm['Vavg'] = movie['vote_average'];
   outputForm['Vcount'] = movie['vote_count'];
+  outputForm['Popularity'] = movie['popularity'];
 
   return outputForm;
 }
@@ -40,7 +42,7 @@ function AddMovieButton({ onSuccessfulMovieCreation }) {
     setMovieCreationError(null);
     let movies = [];
 
-    for (let PageNum = 1; PageNum < 100; PageNum++) {
+    for (let PageNum = 1; PageNum < 10; PageNum++) {
       let str = '';
       str =
         'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a&page=';

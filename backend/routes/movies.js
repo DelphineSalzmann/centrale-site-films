@@ -38,6 +38,7 @@ router.post('/new', function (req, res) {
     Poster_path: req.body.Path,
     Vote_average: req.body.Vavg,
     Vote_count: req.body.Vcount,
+    Popularity: req.body.Popularity,
   });
 
   movieRepository
