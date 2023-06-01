@@ -8,8 +8,11 @@
 
 .add-movie-button {
   cursor: pointer;
-  color: white;
+  color:black ;
   padding: 5px;
+  background-color: #4169e1;
+  border-radius: 20px;
+  
 }
 
 .add-movie-button:hover {

@@ -78,7 +78,7 @@ function AddMovieButton({ onSuccessfulMovieCreation }) {
 
   return (
     <div>
-      <button onClick={saveMovie}> Add Movie </button>
+      <button onClick={saveMovie} className='addMovie-button'> Add Movie </button>
     </div>
   );
 }

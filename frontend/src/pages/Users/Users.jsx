@@ -32,7 +32,7 @@ function Users() {
   return (
     <div className="Users-container">
       <h1>This page displays the users</h1>
-      <AddUserForm onSuccessfulUserCreation={fetchUsers} />
+      <AddUserForm  onSuccessfulUserCreation={fetchUsers} />
       <UsersTable users={users} onSuccessfulUserDeletion={fetchUsers} />
       {usersLoadingError !== null && (
         <div className="users-loading-error">{usersLoadingError}</div>
