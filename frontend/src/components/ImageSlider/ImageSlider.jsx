@@ -62,7 +62,7 @@ const ImageSlider = ({ slides }) => {
     }
     timerRef.current = setTimeout(() => {
       goToNext();
-    }, 4000);
+    }, 3000);
 
     return () => clearTimeout(timerRef.current);
   }, [goToNext]);
@@ -70,10 +70,10 @@ const ImageSlider = ({ slides }) => {
   return (
     <div style={SliderStyle}>
       <div style={leftArrowStyles} onClick={goToPrevious}>
-        ❰
+        
       </div>
       <div style={rightArrowStyles} onClick={goToNext}>
-        ❱
+        
       </div>
       <div style={SlideStyle}></div>
     </div>
