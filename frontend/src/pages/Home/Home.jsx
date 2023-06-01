@@ -221,13 +221,13 @@ function Home() {
           onChange={(event) => searchchange(event.target.value)}
           // on attribue à movieName ce que l'utilisateur entre en input
         ></input>
-        <button className="recommandation-button" onClick={() => setBouton(2)}>
+        <button className="recommandation-button" onClick={() => setBouton(4)}>
           Mes recommandations
         </button>
         <button className="popular-button" onClick={() => setBouton(1)}>
           Les plus populaires
         </button>
-        <button className="best-rated-button" onClick={() => setBouton(4)}>
+        <button className="best-rated-button" onClick={() => setBouton(2)}>
           Les mieux notés
         </button>
         <br></br>
