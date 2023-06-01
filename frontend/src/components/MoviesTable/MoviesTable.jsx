@@ -28,7 +28,12 @@ function MoviesTable({ movies, onSuccessfulMovieDeletion }) {
               <td>{movie.Date}</td>
               <td>{movie.Vote_average}</td>
               <td>
-                <button onClick={() => deleteMovie(movie.id)}>Delete</button>
+                <button
+                  className="delete-button"
+                  onClick={() => deleteMovie(movie.id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
