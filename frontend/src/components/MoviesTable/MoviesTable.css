@@ -9,3 +9,13 @@
 .movies-table th {
   padding: 10px;
 }
+
+.delete-button {
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+}
+
+.delete-button:hover {
+  background-color: red;
+}
