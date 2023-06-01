@@ -2,12 +2,14 @@ import logo from './logo.svg';
 import './Home.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { slice } from 'lodash';
 import axios from 'axios';
 import img1 from './img1.jpg';
 import img2 from './img2.jpg';
 import img3 from './img3.jpg';
 import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import Movie from '../../components/Movie/Movie';
+import Posts from '../../components/LoadMoreButton/LoadMore';
 //import StarRating from '../../components/StarRating/StarRating';
 
 function numberOfmatches(arr1, arr2) {
@@ -189,9 +191,23 @@ function Home() {
     margin: '0 auto',
   };
 
+  const [index, setIndex] = useState(100);
+  const [post, setPost] = useState([]);
+  const initialPosts = slice(post, 0, index); 
+  // La méthode slice() renvoie un objet tableau, contenant une copie superficielle d'une portion du tableau d'origine, la portion est définie par un indice de début et un indice de fin (exclus). Le tableau original ne sera pas modifié.
+  const [isCompleted, setIsCompleted] = useState(false);
+  const loadMore = () => {
+    setIndex(index + 50)
+    if (index >= post.length) {
+      setIsCompleted(true)
+    } else {
+      setIsCompleted(false)
+    }
+  }
+
   let listItems = null;
   if (FilterMovies(movieName, movies).length > 0) {
-    listItems = FilterMovies(movieName, movies).map((movie) => (
+    listItems = FilterMovies(movieName, movies).slice(0, index).map((movie) => (
       // liste des films filtrée par rapport à l'input. On la parcours pour obtenir les titres et les images et toute autre donnée définie dans Movie
       <li class="flex-item" key={movie}>
         <Movie movie={movie}></Movie>
@@ -221,22 +237,40 @@ function Home() {
           onChange={(event) => searchchange(event.target.value)}
           // on attribue à movieName ce que l'utilisateur entre en input
         ></input>
-        <button className="recommandation-button" onClick={() => setBouton(4)}>
+        <p>
+        <div className='affichage-button'>
+          <div className='affichage_recommandation'>
+          <button className="recommandation-button" onClick={() => setBouton(4)}>
           Mes recommandations
-        </button>
-        <button className="popular-button" onClick={() => setBouton(1)}>
+          </button>
+          </div>
+          <div className='affichage_popular'>
+          <button className="popular-button" onClick={() => setBouton(1)}>
           Les plus populaires
-        </button>
-        <button className="best-rated-button" onClick={() => setBouton(2)}>
+          </button>
+          </div>
+          <div className='affichage_vote'>
+            <button className="best-rated-button" onClick={() => setBouton(2)}>
           Les mieux notés
-        </button>
+          </button>
+          </div>
+          
+        </div>
+        </p>
+        
         <br></br>
 
         <p>
           <ul class="flex-container">{listItems}</ul>{' '}
         </p>
       </header>
-    </div>
+      <div className="container Load_more">
+      <button onClick={loadMore} type="button">
+            Load More 
+          </button>
+      </div>
+  </div>
+    
   );
 }
 

@@ -38,6 +38,11 @@
   }
 }
 
+input {
+  width: 200px;
+  height: 20px;
+}
+
 .textinput {
   width: 300px;
   height: 20px;
@@ -92,7 +97,7 @@ ul {
 }
 
 .popular-button:hover {
-  background-color: blueviolet;
+  text-decoration: underline;
 }
 
 .best-rated-button {
@@ -103,7 +108,7 @@ ul {
 }
 
 .best-rated-button:hover {
-  background-color: blueviolet;
+  text-decoration: underline;
 }
 
 .recommandation-button {
@@ -113,5 +118,26 @@ ul {
   font-size: 20px;
 }
 .recommandation-button:hover {
-  background-color: blueviolet;
+  text-decoration: underline;
+}
+
+.affichage-button{
+  display: flex;
+}
+
+.affichage_recommandation{
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+.affichage_recommandation p {
+  margin-bottom: 10px;
+}
+
+.affichage_popular{
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+.affichage_vote{
+  margin-bottom: 10px;
+  margin-left: 20px;
 }
