@@ -15,7 +15,7 @@ function useFetchMovies() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/movies/most_vote`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/movies/most_popular`)
       //.get(
       // 'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a'
       //)
