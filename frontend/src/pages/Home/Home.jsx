@@ -12,17 +12,16 @@ import Movie from '../../components/Movie/Movie';
 
 function useFetchMovies(bouton) {
   const [movies, setMovies] = useState([]);
-  let adresse='';
+  let adresse = '';
   let string = `${import.meta.env.VITE_BACKEND_URL}/movies`;
-  if (bouton === 1){
+  if (bouton === 1) {
     adresse = `/most_popular`;
   }
-  if (bouton=== 2){
+  if (bouton === 2) {
     adresse = `/most_vote`;
-  };
+  }
   string = string.concat(adresse);
   useEffect(() => {
-
     axios
       .get(string)
       //.get(
@@ -108,8 +107,12 @@ function Home() {
           onChange={(event) => setmovieName(event.target.value)}
           // on attribue à movieName ce que l'utilisateur entre en input
         ></input>
-        <button className='button_populaire' onClick={()=>setBouton(1)}>Les plus populaires</button>
-        <button className='button_note' onClick={()=>setBouton(2)}>Les mieux notés</button>
+        <button className="popular-button" onClick={() => setBouton(1)}>
+          Les plus populaires
+        </button>
+        <button className="best-rated-button" onClick={() => setBouton(2)}>
+          Les mieux notés
+        </button>
         <br></br>
 
         <p>

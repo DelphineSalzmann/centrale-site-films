@@ -90,8 +90,16 @@ ul {
   padding: 5px;
 }
 
+.popular-button:hover {
+  background-color: blueviolet;
+}
+
 .best-rated-button {
   cursor: pointer;
   color: white;
   padding: 5px;
+}
+
+.best-rated-button:hover {
+  background-color: blueviolet;
 }
