@@ -8,7 +8,12 @@
 
 .add-user-button {
   cursor: pointer;
+  color: white;
   padding: 5px;
+}
+
+.add-user-button:hover {
+  background-color: green;
 }
 
 .user-creation-success {

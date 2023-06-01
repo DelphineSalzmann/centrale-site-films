@@ -1,9 +1,65 @@
-.Movie-title {
+img {
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+}
+
+.movie-title {
   font-size: 1em;
 }
 
-button{
-  background-color: #3d354e;
-  border-color: #3d354e;
+button {
+  background-color: #282c34;
+  border-color: #282c34;
   border: none;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.movie-card {
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.movie-card button {
+  background-color: transparent;
+  border: none;
+}
+
+.movie-card img {
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.popup-content {
+  display: flex;
+}
+
+.movie-details {
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.movie-details p {
+  margin-bottom: 10px;
+}
+
+.movie-details .section-title {
+  text-align: left;
+}
+
+.movie-details .section-content {
+  text-align: justify;
+}
+
+.movie-rating {
+  flex: 1;
+}
+
+.movie-rating p {
+  margin-bottom: 10px;
 }
