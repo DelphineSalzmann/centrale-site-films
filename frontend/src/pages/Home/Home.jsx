@@ -227,7 +227,7 @@ function Home() {
         <button className="popular-button" onClick={() => setBouton(1)}>
           Les plus populaires
         </button>
-        <button className="best-rated-button" onClick={() => setBouton(2)}>
+        <button className="best-rated-button" onClick={() => setBouton(4)}>
           Les mieux notés
         </button>
         <br></br>
