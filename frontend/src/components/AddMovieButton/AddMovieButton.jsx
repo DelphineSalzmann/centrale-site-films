@@ -83,7 +83,28 @@ function AddMovieButton({ onSuccessfulMovieCreation }) {
 
   return (
     <div>
-      <button onClick={saveMovie} className='addMovie-button'> Add Movie </button>
+      <input
+        type="number"
+        id="Startpage"
+        name="Startpage"
+        min="1"
+        max="499"
+        className="num-input"
+        onChange={(event) => setStartPage(event.target.value)}
+      ></input>
+      <input
+        type="number"
+        id="Endpage"
+        name="Endpage"
+        min="2"
+        max="499"
+        className="num-input"
+        onChange={(event) => setEndPage(event.target.value)}
+      ></input>
+      <button onClick={saveMovie} className="addMovie-button">
+        {' '}
+        Add Movie{' '}
+      </button>
     </div>
   );
 }
