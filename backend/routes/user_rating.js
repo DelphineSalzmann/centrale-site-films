@@ -19,6 +19,7 @@ router.post('/new', function (req, res) {
     movie_id: req.body.movie_id,
     user_id: req.body.user_id,
     rating: req.body.rating,
+    genre: req.body.genre,
   });
 
   user_ratingRepository

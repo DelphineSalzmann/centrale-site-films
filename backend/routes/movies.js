@@ -42,6 +42,23 @@ router.get('/most_popular', function (req, res) {
     });
 });
 
+router.get('/search', function (req, res) {
+  const query = req.query.query.toLowerCase();
+  appDataSource
+    .getRepository(Movie)
+    .createQueryBuilder('movie') // first argument is an alias. Alias is what you are selecting - photos. You must specify it.
+    //.andWhere("(photo.name = :photoName OR photo.name = :bearName)")
+    //.where("user.firstName like :name", { name:`%${firstName}%` })
+    .where('LOWER(movie.Title) like :query', { query: `%${query}%` })
+    .orderBy('movie.Popularity', 'DESC')
+    .take(100)
+    //.setParameters({ photoName: "My", bearName: "Mishka" })
+    .getMany()
+    .then(function (movies) {
+      res.json({ movies: movies });
+    });
+});
+
 router.post('/new', function (req, res) {
   const movieRepository = appDataSource.getRepository(Movie);
   const newMovie = movieRepository.create({
@@ -53,6 +70,7 @@ router.post('/new', function (req, res) {
     Vote_average: req.body.Vavg,
     Vote_count: req.body.Vcount,
     Popularity: req.body.Popularity,
+    Genre: req.body.Genre,
   });
 
   movieRepository

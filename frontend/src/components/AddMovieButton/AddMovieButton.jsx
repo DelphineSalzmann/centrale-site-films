@@ -11,6 +11,7 @@ const DEFAULT_FORM_VALUES = {
   vote_average: null,
   vote_count: null,
   popularity: null,
+  genre_ids: '',
 };
 
 function FormOfMovie(movie) {
@@ -23,6 +24,7 @@ function FormOfMovie(movie) {
   outputForm['Vavg'] = movie['vote_average'];
   outputForm['Vcount'] = movie['vote_count'];
   outputForm['Popularity'] = movie['popularity'];
+  outputForm['Genre'] = movie['genre_ids'].toString();
 
   return outputForm;
 }

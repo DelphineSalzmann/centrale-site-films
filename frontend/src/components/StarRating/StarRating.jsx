@@ -6,8 +6,9 @@ import { FaStar } from 'react-icons/fa';
 import axios from 'axios';
 import { useEffect } from 'react';
 
-const StarRating = ({ movieid }) => {
+const StarRating = ({ movieid, genrearr }) => {
   console.log(movieid);
+  console.log(genrearr);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
 
@@ -38,10 +39,12 @@ const StarRating = ({ movieid }) => {
       movie_id: null,
       user_id: null,
       rating: null,
+      genre: '',
     };
     form_values['movie_id'] = movieid;
     form_values['user_id'] = 42;
     form_values['rating'] = rating;
+    form_values['genre'] = genrearr;
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/user_rating/new`, form_values)
       .catch((error) => {

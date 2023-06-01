@@ -18,6 +18,7 @@ const Movie = new typeorm.EntitySchema({
     Vote_average: { type: Number },
     Vote_count: { type: Number },
     Popularity: { type: Number },
+    Genre: { type: String },
   },
 });
 

@@ -17,6 +17,7 @@ const User_rating = new typeorm.EntitySchema({
     rating: {
       type: Number,
     },
+    genre: { type: String },
   },
 });
 

@@ -11,6 +11,7 @@ const DEFAULT_FORM_VALUES = {
   Vavg: null,
   Vcount: null,
   Popularity: null,
+  Genre: '',
 };
 
 function AddMovieForm({ onSuccessfulMovieCreation }) {
@@ -112,6 +113,14 @@ function AddMovieForm({ onSuccessfulMovieCreation }) {
           value={formValues.Popularity}
           onChange={(event) =>
             setFormValues({ ...formValues, Popularity: event.target.value })
+          }
+        />
+        <input
+          className="add-Movie-input"
+          placeholder="Genre"
+          value={formValues.Genre}
+          onChange={(event) =>
+            setFormValues({ ...formValues, Genre: event.target.value })
           }
         />
         <button className="add-movie-button" type="submit">
