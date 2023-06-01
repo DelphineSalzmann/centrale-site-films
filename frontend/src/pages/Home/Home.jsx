@@ -10,12 +10,21 @@ import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import Movie from '../../components/Movie/Movie';
 //import StarRating from '../../components/StarRating/StarRating';
 
-function useFetchMovies() {
+function useFetchMovies(bouton) {
   const [movies, setMovies] = useState([]);
-
+  let adresse='';
+  let string = `${import.meta.env.VITE_BACKEND_URL}/movies`;
+  if (bouton === 1){
+    adresse = `/most_popular`;
+  }
+  if (bouton=== 2){
+    adresse = `/most_vote`;
+  };
+  string = string.concat(adresse);
   useEffect(() => {
+
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/movies/most_popular`)
+      .get(string)
       //.get(
       // 'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a'
       //)
@@ -29,7 +38,7 @@ function useFetchMovies() {
         // Do something if call failed
         console.log(error);
       });
-  }, []);
+  }, [[], bouton]);
 
   return movies;
 }
@@ -55,7 +64,8 @@ function FilterMovies(string, movies_arr) {
 
 function Home() {
   const [movieName, setmovieName] = useState('');
-  const movies = useFetchMovies();
+  const [bouton, setBouton] = useState(1);
+  const movies = useFetchMovies(bouton);
   const slides = [
     { url: img1, title: 'titre' },
     { url: img2, title: 'titre' },
@@ -89,7 +99,7 @@ function Home() {
       </div>
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>Search 🔎</p>
+        <p>Rechercher 🔎</p>
 
         <input
           type="text"
@@ -98,6 +108,8 @@ function Home() {
           onChange={(event) => setmovieName(event.target.value)}
           // on attribue à movieName ce que l'utilisateur entre en input
         ></input>
+        <button className='button_populaire' onClick={()=>setBouton(1)}>Les plus populaires</button>
+        <button className='button_note' onClick={()=>setBouton(2)}>Les mieux notés</button>
         <br></br>
 
         <p>
