@@ -114,7 +114,7 @@ function AddMovieForm({ onSuccessfulMovieCreation }) {
             setFormValues({ ...formValues, Popularity: event.target.value })
           }
         />
-        <button className="add-Movie-button" type="submit">
+        <button className="add-movie-button" type="submit">
           Add Movie
         </button>
       </form>
