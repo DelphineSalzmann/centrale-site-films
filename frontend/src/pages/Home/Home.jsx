@@ -10,38 +10,9 @@ import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import Movie from '../../components/Movie/Movie';
 //import StarRating from '../../components/StarRating/StarRating';
 
-function useFetchMovies(bouton) {
-  const [movies, setMovies] = useState([]);
-  let adresse='';
-  let string = `${import.meta.env.VITE_BACKEND_URL}/movies`;
-  if (bouton === 1){
-    adresse = `/most_popular`;
-  }
-  if (bouton=== 2){
-    adresse = `/most_vote`;
-  };
-  string = string.concat(adresse);
-  useEffect(() => {
 
-    axios
-      .get(string)
-      //.get(
-      // 'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a'
-      //)
-      .then((response) => {
-        // Do something if call succeeded
-        let array = response.data.movies;
-        array = response.data.movies;
-        setMovies(array);
-      })
-      .catch((error) => {
-        // Do something if call failed
-        console.log(error);
-      });
-  }, [[], bouton]);
+  
 
-  return movies;
-}
 
 function includestring(str1, str2) {
   //teste si str2 est compris dans str1
@@ -65,7 +36,37 @@ function FilterMovies(string, movies_arr) {
 function Home() {
   const [movieName, setmovieName] = useState('');
   const [bouton, setBouton] = useState(1);
-  const movies = useFetchMovies(bouton);
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    console.log(bouton);
+    let adresse='';
+    let string = `${import.meta.env.VITE_BACKEND_URL}/movies`;
+    if (bouton === 1){
+    adresse = `/most_popular`;
+    }
+    if (bouton=== 2){
+    adresse = `/most_vote`;
+    };
+    string = string.concat(adresse);
+
+    axios
+      .get(string)
+      //.get(
+      // 'https://api.themoviedb.org/3/movie/popular?api_key=522d421671cf75c2cba341597d86403a'
+      //)
+      .then((response) => {
+        // Do something if call succeeded
+        let array = response.data.movies;
+        array = response.data.movies;
+        setMovies(array);
+      })
+      .catch((error) => {
+        // Do something if call failed
+        console.log(error);
+      });
+  }, [bouton]);
+
   const slides = [
     { url: img1, title: 'titre' },
     { url: img2, title: 'titre' },
@@ -76,6 +77,8 @@ function Home() {
     height: '280px',
     margin: '0 auto',
   };
+
+
   let listItems = null;
   if (FilterMovies(movieName, movies).length > 0) {
     listItems = FilterMovies(movieName, movies).map((movie) => (
@@ -116,14 +119,7 @@ function Home() {
           <ul class="flex-container">{listItems}</ul>{' '}
         </p>
 
-        <a
-          className="App-link"
-          href="https://react.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
       </header>
     </div>
   );

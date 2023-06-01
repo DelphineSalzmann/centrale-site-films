@@ -46,7 +46,7 @@ const ImageSlider = ({ slides }) => {
     setCurrentIndex(newIndex);
   };
   const goToNext = useCallback(() => {
-    console.log(currentIndex);
+    console.log("SLIDER :" ,currentIndex);
     let newIndex;
     if (currentIndex === 2) {
       newIndex = 0;
