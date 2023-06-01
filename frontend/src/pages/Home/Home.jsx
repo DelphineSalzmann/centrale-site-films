@@ -111,8 +111,12 @@ function Home() {
           onChange={(event) => setmovieName(event.target.value)}
           // on attribue à movieName ce que l'utilisateur entre en input
         ></input>
-        <button className='button_populaire' onClick={()=>setBouton(1)}>Les plus populaires</button>
-        <button className='button_note' onClick={()=>setBouton(2)}>Les mieux notés</button>
+        <button className="popular-button" onClick={() => setBouton(1)}>
+          Les plus populaires
+        </button>
+        <button className="best-rated-button" onClick={() => setBouton(2)}>
+          Les mieux notés
+        </button>
         <br></br>
 
         <p>

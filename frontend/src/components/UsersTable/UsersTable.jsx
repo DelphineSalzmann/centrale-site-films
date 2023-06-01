@@ -25,7 +25,12 @@ function UsersTable({ users, onSuccessfulUserDeletion }) {
               <td>{user.firstname}</td>
               <td>{user.lastname}</td>
               <td>
-                <button onClick={() => deleteUser(user.id)}>Delete</button>
+                <button
+                  className="delete-button"
+                  onClick={() => deleteUser(user.id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

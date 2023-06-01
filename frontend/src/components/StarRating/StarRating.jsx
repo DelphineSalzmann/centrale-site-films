@@ -3,10 +3,51 @@
 import React, { useState } from 'react';
 import Rating from 'react-simple-star-rating';
 import { FaStar } from 'react-icons/fa';
+import axios from 'axios';
+import { useEffect } from 'react';
 
-const StarRating = () => {
+const StarRating = ({ movieid }) => {
+  console.log(movieid);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+
+  useEffect(() => {
+    console.log('START');
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/user_rating`)
+      .then((response) => {
+        let array = response.data.users;
+        array = response.data.users;
+        let i = 0;
+        while (i < array.length) {
+          console.log(array[i]);
+          if (array[i].movie_id === movieid && array[i].user_id === 42) {
+            setRating(array[i].rating);
+          }
+          i++;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    console.log('OKAYYY');
+    const form_values = {
+      movie_id: null,
+      user_id: null,
+      rating: null,
+    };
+    form_values['movie_id'] = movieid;
+    form_values['user_id'] = 42;
+    form_values['rating'] = rating;
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/user_rating/new`, form_values)
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [rating]);
 
   return (
     <div>

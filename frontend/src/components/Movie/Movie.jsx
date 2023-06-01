@@ -43,7 +43,7 @@ function Movie({ movie }) {
               Note : {movie.Vote_average}/10 pour {movie.Vote_count} votes
             </p>
             <p>Noter ce film :</p>
-            <StarRating />
+            <StarRating movieid={movie.id} />
           </div>
           <div className="movie-details">
             <p className="section-title">TITRE : {movie.Title}</p>
