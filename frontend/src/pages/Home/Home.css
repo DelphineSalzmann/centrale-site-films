@@ -88,6 +88,7 @@ ul {
   cursor: pointer;
   color: white;
   padding: 5px;
+  font-size: 20px;
 }
 
 .popular-button:hover {
@@ -98,8 +99,19 @@ ul {
   cursor: pointer;
   color: white;
   padding: 5px;
+  font-size: 20px;
 }
 
 .best-rated-button:hover {
+  background-color: blueviolet;
+}
+
+.recommandation-button {
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+  font-size: 20px;
+}
+.recommandation-button:hover {
   background-color: blueviolet;
 }

@@ -8,21 +8,11 @@
 
 .add-movie-button {
   cursor: pointer;
-  color: black;
+  color:black ;
   padding: 5px;
-  background-color: white;
-}
-
-.num-input {
-  cursor: pointer;
-  border-radius: 2px;
-  padding: 5px;
-  width: 40px;
-  height: auto;
+  background-color: #4169e1;
   border-radius: 20px;
-  margin-right: 20px;
-  -moz-appearance: textfield; /* Pour Firefox */
-  appearance: textfield; /* Pour les autres navigateurs */
+  
 }
 
 .num-input::-webkit-outer-spin-button,

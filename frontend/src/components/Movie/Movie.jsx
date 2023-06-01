@@ -4,7 +4,7 @@ import StarRating from '../StarRating/StarRating';
 import './Movie.css';
 
 function Movie({ movie }) {
-  // {"adult","backdrop_path","genre_ids""id","original_language","original_title","overview","popularity","poster_path","release_date","title","video","vote_average","vote_count"}
+  // {"adult","backdrop_path","genre_ids","id","original_language","original_title","overview","popularity","poster_path","release_date","title","video","vote_average","vote_count"}
   // {"Title", "Date", "Overview", "Poster_path", "Vote_average", "Vote-count"}
 
   const [buttonPopup, setButtonPopup] = useState(false);

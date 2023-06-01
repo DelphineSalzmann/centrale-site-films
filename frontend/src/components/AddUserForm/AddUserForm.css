@@ -8,8 +8,12 @@
 
 .add-user-button {
   cursor: pointer;
-  color: white;
+  color: black;
   padding: 5px;
+  background-color: #708090;
+  border-radius: 20px;
+  border: solid;
+  border-color:  #c0c0c0;
 }
 
 .add-user-button:hover {
