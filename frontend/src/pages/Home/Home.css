@@ -83,3 +83,15 @@ ul {
   font-size: 0.8em;
   text-align: center;
 }
+
+.popular-button {
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+}
+
+.best-rated-button {
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+}
