@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = useRef(null);
-  const SliderStyle = { 
+  const SliderStyle = {
     height: '100%',
     position: 'relative',
   };
@@ -62,7 +62,7 @@ const ImageSlider = ({ slides }) => {
     }
     timerRef.current = setTimeout(() => {
       goToNext();
-    }, 3000);
+    }, 4000);
 
     return () => clearTimeout(timerRef.current);
   }, [goToNext]);
@@ -70,10 +70,10 @@ const ImageSlider = ({ slides }) => {
   return (
     <div style={SliderStyle}>
       <div style={leftArrowStyles} onClick={goToPrevious}>
-        
+        ❰
       </div>
       <div style={rightArrowStyles} onClick={goToNext}>
-        
+        ❱
       </div>
       <div style={SlideStyle}></div>
     </div>
@@ -81,3 +81,6 @@ const ImageSlider = ({ slides }) => {
 };
 
 export default ImageSlider;
+
+//❰    &#10096     &#x2770
+//❱    &#10097     &#x2771
