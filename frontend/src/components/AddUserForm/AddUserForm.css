@@ -10,10 +10,9 @@
   cursor: pointer;
   color: black;
   padding: 5px;
-  background-color: #708090;
+  background-color: #4169e1;
   border-radius: 20px;
-  border: solid;
-  border-color:  #c0c0c0;
+  
 }
 
 .add-user-button:hover {

@@ -32,7 +32,7 @@ function Movies() {
     <div className="Movies-container">
       <h1>This page displays the movies</h1>
 
-      <p>Click this button to add the most popular movies to the database</p>
+      <p>Indicate the page range you want to browse</p>
       <AddMovieButton onSuccessfulMovieCreation={fetchMovies}></AddMovieButton>
 
       <p>Or add movie based on information</p>
