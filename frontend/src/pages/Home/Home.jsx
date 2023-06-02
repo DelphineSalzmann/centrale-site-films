@@ -190,18 +190,11 @@ function Home() {
     margin: '0 auto',
   };
 
-  const [index, setIndex] = useState(100);
-  const [post, setPost] = useState([]);
-  const initialPosts = slice(post, 0, index); 
+  const [index, setIndex] = useState(26); 
   // La méthode slice() renvoie un objet tableau, contenant une copie superficielle d'une portion du tableau d'origine, la portion est définie par un indice de début et un indice de fin (exclus). Le tableau original ne sera pas modifié.
   const [isCompleted, setIsCompleted] = useState(false);
   const loadMore = () => {
-    setIndex(index + 50)
-    if (index >= post.length) {
-      setIsCompleted(true)
-    } else {
-      setIsCompleted(false)
-    }
+    setIndex(index + 26)
   }
 
   let listItems = null;
@@ -211,6 +204,7 @@ function Home() {
       <li class="flex-item" key={movie}>
         <Movie movie={movie}></Movie>
       </li>
+
     ));
   } else {
     listItems = (

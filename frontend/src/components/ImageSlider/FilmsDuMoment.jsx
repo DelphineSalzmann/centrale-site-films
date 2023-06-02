@@ -32,12 +32,22 @@ function useFetchRecents() {
   return recents;
 }
 
-let slides = [];
-listItems = useFetchRecents.slice(0, 10).map((recent) => (
-    <li class="flex-item" key={recent}>
-      <Movie movie={recent}></Movie>
-    </li>))
+const slides=()=>{
+  recents=useFetchRecents()
+  useFetchRecents.slice(0, 10).map((recent) => (
+    let img_path = '';
+    img_path = 'https://image.tmdb.org/t/p/original';
+    img_path = img_path.concat(recent.Poster_path);
+      ))
+      return(
+        
+      )
+  
+}
 
+
+
+  
 
 
 
