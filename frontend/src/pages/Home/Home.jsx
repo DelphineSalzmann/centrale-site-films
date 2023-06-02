@@ -58,6 +58,7 @@ function Home() {
   }
 
   const createArrays = async () => {
+    const [index, setIndex] = useState(26);
     let adresse = '';
     let string = `${import.meta.env.VITE_BACKEND_URL}/movies`;
     if (bouton === 4) {
@@ -192,7 +193,6 @@ function Home() {
 
   const [index, setIndex] = useState(26); 
   // La méthode slice() renvoie un objet tableau, contenant une copie superficielle d'une portion du tableau d'origine, la portion est définie par un indice de début et un indice de fin (exclus). Le tableau original ne sera pas modifié.
-  const [isCompleted, setIsCompleted] = useState(false);
   const loadMore = () => {
     setIndex(index + 26)
   }
