@@ -58,7 +58,7 @@ function Home() {
   }
 
   const createArrays = async () => {
-    const [index, setIndex] = useState(26);
+    setIndex(26);
     let adresse = '';
     let string = `${import.meta.env.VITE_BACKEND_URL}/movies`;
     if (bouton === 4) {
