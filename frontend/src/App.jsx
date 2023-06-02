@@ -10,7 +10,6 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="counter" element={<Counter />} />
         <Route path="users" element={<Users />} />
         <Route path="movies" element={<Movies />} />
       </Routes>
